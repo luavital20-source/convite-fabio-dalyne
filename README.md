@@ -21,10 +21,10 @@ O arquivo `index.html` funciona sozinho. Para colocar no ar pelo GitHub Pages:
 Se algum dos dois arquivos não existir, o convite continua funcionando normalmente
 — a seção correspondente simplesmente não é exibida.
 
-## O que ainda falta preencher
+## Links externos usados
 
-- **WhatsApp da confirmação de presença**: em `index.html`, procure por `55DDDNUMERO`
-  e troque pelo número real, no formato `55` + DDD + número (ex.: `5588999998888`).
+- **Confirmação de presença:** <https://noivos.casar.com/dalyne-e-fabio#/rsvp>
+- **Lista de presentes:** <https://noivos.casar.com/dalyne-e-fabio#/presentes>
 
 ## Informações do convite
 
