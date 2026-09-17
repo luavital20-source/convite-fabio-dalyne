@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fábio &amp; Dalyne — 19.12.2026</title>
 <meta name="description" content="Convite de casamento de Fábio e Dalyne — 19 de dezembro de 2026, Igreja do Céu, Viçosa do Ceará.">
+<link rel="preload" as="image" href="monograma.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,6 +13,7 @@
   :root {
     --cream: #f5f2e9;
     --warm-white: #ece6d8;
+    --card-bg: #f7f6f4;
     --olive: #6f7550;
     --olive-light: #9aa079;
     --olive-dark: #4d5235;
@@ -34,26 +36,24 @@
   /* SPLASH / INTRO */
   #envelope-screen {
     position: fixed; inset: 0;
-    background: var(--warm-white);
+    background: var(--card-bg);
     display: flex; align-items: center; justify-content: center;
     z-index: 100; cursor: pointer; overflow: hidden;
+    padding: 24px 16px 92px;
     transition: opacity 0.9s ease, transform 0.9s ease;
   }
-  #envelope-screen.open { opacity: 0; transform: scale(1.04); pointer-events: none; }
 
-  .intro-petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-  .petal {
-    position: absolute;
-    border-radius: 47% 53% 68% 32% / 32% 42% 58% 68%;
-    will-change: transform;
-    animation-name: petal-float;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+  /* MONOGRAMA — capa do convite */
+  .intro-monogram {
+    position: relative; z-index: 2;
+    max-width: min(94%, 520px);
+    max-height: min(72vh, 700px);
+    width: auto; height: auto; object-fit: contain;
+    opacity: 0; transform: translateY(14px) scale(0.985);
+    animation: monoIn 1.4s ease forwards 0.2s;
   }
-  @keyframes petal-float {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50%     { transform: translateY(14px) rotate(16deg); }
-  }
+  @keyframes monoIn { to { opacity: 1; transform: translateY(0) scale(1); } }
+  #envelope-screen.open { opacity: 0; transform: scale(1.04); pointer-events: none; }
 
   .intro-inner {
     position: relative; z-index: 2; text-align: center; padding: 0 24px;
@@ -129,13 +129,6 @@
   }
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-  /* MONOGRAMA */
-  .monogram {
-    display: block; margin: 0 auto 22px;
-    max-width: 130px; width: 34vw; height: auto;
-    opacity: 0; animation: fadeUp 1.1s ease forwards 0.45s;
-  }
-
   .hero-eyebrow {
     font-family: 'Cinzel', Georgia, serif; font-size: 11px;
     letter-spacing: 5px; text-transform: uppercase; color: var(--text-mid);
@@ -200,13 +193,15 @@
     padding: 0;
     position: relative;
     overflow: hidden;
-    max-height: 560px;
+    max-width: 600px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
   }
   .photo-section img {
-    width: 100%; height: 560px;
-    object-fit: cover; object-position: center 22%;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 25%;
     display: block;
-    filter: sepia(8%) brightness(0.98) saturate(0.96);
+    filter: sepia(6%) brightness(0.99) saturate(0.97);
   }
   .photo-overlay {
     position: absolute; inset: 0;
@@ -486,8 +481,10 @@
 
 <!-- SPLASH -->
 <div id="envelope-screen" onclick="openInvite()">
-  <div class="intro-petals" id="intro-petals" aria-hidden="true"></div>
-  <div class="intro-inner">
+  <img class="intro-monogram" id="intro-monogram" src="monograma.jpg"
+       alt="Monograma de Fábio e Dalyne — 19 de dezembro de 2026"
+       onerror="mostrarCapaEmTexto()">
+  <div class="intro-inner" id="intro-fallback" hidden>
     <span class="intro-eyebrow">Um convite especial</span>
     <div class="intro-names">
       Fábio
@@ -511,8 +508,6 @@
     <svg class="corner corner-br" viewBox="0 0 80 80" fill="none"><path d="M2 2 L2 40 M2 2 L40 2" stroke="#6f7550" stroke-width="1.5"/><circle cx="2" cy="2" r="2.5" fill="#6f7550"/></svg>
 
     <div class="hero-inner">
-      <!-- MONOGRAMA: envie o arquivo "monograma.png" para a mesma pasta deste index.html -->
-      <img class="monogram" src="monograma.png" alt="Monograma de Fábio e Dalyne" onerror="this.style.display='none'">
       <span class="hero-eyebrow">Convidam para o seu casamento</span>
       <div class="divider-ornament"><div class="diamond"></div></div>
       <div class="names">
@@ -530,7 +525,7 @@
     </div>
   </div>
 
-  <!-- FOTO DO CASAL: envie o arquivo "foto-casal.jpg" para a mesma pasta deste index.html -->
+  <!-- FOTO DO CASAL -->
   <div class="photo-section" id="photo-section">
     <img src="foto-casal.jpg" alt="Fábio e Dalyne" onerror="document.getElementById('photo-section').style.display='none'">
     <div class="photo-overlay"></div>
@@ -781,28 +776,13 @@
 </div>
 
 <script>
-  /* ---------- PÉTALAS DA ABERTURA ---------- */
-  function buildPetals() {
-    var wrap = document.getElementById('intro-petals');
-    if (!wrap) return;
-    var colors = ['#9aa079','#a89684','#cdb9a8','#b8a98f','#8f9468'];
-    for (var i = 0; i < 20; i++) {
-      var s = 6 + Math.random() * 10;
-      var p = document.createElement('div');
-      p.className = 'petal';
-      p.style.width = s + 'px';
-      p.style.height = (s * 0.78) + 'px';
-      p.style.left = (Math.random() * 100) + '%';
-      p.style.top = (Math.random() * 100) + '%';
-      p.style.background = colors[Math.floor(Math.random() * colors.length)];
-      p.style.opacity = (0.28 + Math.random() * 0.3).toFixed(2);
-      p.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-      p.style.animationDuration = (4 + Math.random() * 5).toFixed(1) + 's';
-      p.style.animationDelay = (-Math.random() * 5).toFixed(1) + 's';
-      wrap.appendChild(p);
-    }
+  /* Se o monograma não carregar, a capa volta a ser em texto */
+  function mostrarCapaEmTexto() {
+    var img = document.getElementById('intro-monogram');
+    if (img) img.style.display = 'none';
+    var txt = document.getElementById('intro-fallback');
+    if (txt) txt.hidden = false;
   }
-  buildPetals();
 
   function setAppHeight() {
     document.documentElement.style.setProperty('--app-height', window.innerHeight + 'px');

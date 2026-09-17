@@ -11,15 +11,17 @@ O arquivo `index.html` funciona sozinho. Para colocar no ar pelo GitHub Pages:
 2. Em *Source*, escolha a branch e a pasta `/ (root)`
 3. Salve — o convite ficará disponível no endereço indicado pelo GitHub
 
-## Imagens (enviar para esta mesma pasta)
+## Imagens
 
-| Arquivo | Onde aparece | Observação |
-|---|---|---|
-| `foto-casal.jpg` | Faixa abaixo do nome dos noivos | De preferência na horizontal, com boa resolução |
-| `monograma.png` | Topo do convite, acima dos nomes | PNG com fundo transparente fica melhor |
+| Arquivo | Onde aparece |
+|---|---|
+| `monograma.jpg` | Capa — é a primeira tela, antes de tocar para abrir |
+| `foto-casal.jpg` | Logo abaixo do nome dos noivos |
 
-Se algum dos dois arquivos não existir, o convite continua funcionando normalmente
-— a seção correspondente simplesmente não é exibida.
+Para trocar qualquer uma das duas, basta substituir o arquivo mantendo o mesmo nome.
+
+Se algum dos arquivos faltar, o convite continua funcionando: sem a foto do casal a
+seção some, e sem o monograma a capa volta a ser em texto, com os nomes e a data.
 
 ## Links externos usados
 
