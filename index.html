@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fábio &amp; Dalyne — 19.12.2026</title>
 <meta name="description" content="Convite de casamento de Fábio e Dalyne — 19 de dezembro de 2026, Igreja do Céu, Viçosa do Ceará.">
-<link rel="preload" as="image" href="monograma.jpg">
+<link rel="preload" as="image" href="monograma.webp" type="image/webp">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,7 +13,6 @@
   :root {
     --cream: #f5f2e9;
     --warm-white: #ece6d8;
-    --card-bg: #f7f6f4;
     --olive: #6f7550;
     --olive-light: #9aa079;
     --olive-dark: #4d5235;
@@ -36,7 +35,7 @@
   /* SPLASH / INTRO */
   #envelope-screen {
     position: fixed; inset: 0;
-    background: var(--card-bg);
+    background: var(--cream);
     display: flex; align-items: center; justify-content: center;
     z-index: 100; cursor: pointer; overflow: hidden;
     padding: 24px 16px 92px;
@@ -46,8 +45,8 @@
   /* MONOGRAMA — capa do convite */
   .intro-monogram {
     position: relative; z-index: 2;
-    max-width: min(94%, 520px);
-    max-height: min(72vh, 700px);
+    max-width: min(84%, 440px);
+    max-height: min(66vh, 620px);
     width: auto; height: auto; object-fit: contain;
     opacity: 0; transform: translateY(14px) scale(0.985);
     animation: monoIn 1.4s ease forwards 0.2s;
@@ -481,9 +480,13 @@
 
 <!-- SPLASH -->
 <div id="envelope-screen" onclick="openInvite()">
-  <img class="intro-monogram" id="intro-monogram" src="monograma.jpg"
-       alt="Monograma de Fábio e Dalyne — 19 de dezembro de 2026"
-       onerror="mostrarCapaEmTexto()">
+  <picture>
+    <source srcset="monograma.webp" type="image/webp">
+    <img class="intro-monogram" id="intro-monogram" src="monograma.png"
+         width="828" height="1208"
+         alt="Monograma de Fábio e Dalyne — 19 de dezembro de 2026"
+         onerror="mostrarCapaEmTexto()">
+  </picture>
   <div class="intro-inner" id="intro-fallback" hidden>
     <span class="intro-eyebrow">Um convite especial</span>
     <div class="intro-names">

@@ -15,10 +15,17 @@ O arquivo `index.html` funciona sozinho. Para colocar no ar pelo GitHub Pages:
 
 | Arquivo | Onde aparece |
 |---|---|
-| `monograma.jpg` | Capa — é a primeira tela, antes de tocar para abrir |
+| `monograma.webp` | Capa — é a primeira tela, antes de tocar para abrir |
+| `monograma.png` | A mesma capa, para navegadores antigos que não abrem WebP |
+| `monograma.jpg` | Arte original, como foi enviada (com o fundo branco). Não é usada na página — fica guardada como fonte |
 | `foto-casal.jpg` | Logo abaixo do nome dos noivos |
 
-Para trocar qualquer uma das duas, basta substituir o arquivo mantendo o mesmo nome.
+O monograma da capa teve o fundo branco removido, ficando só as letras, o arabesco
+e a data. As rosas dos cantos saíram junto, porque eram decoração da borda do cartão
+e, sem o retângulo branco, apareceriam cortadas.
+
+Para trocar a foto do casal, basta substituir o arquivo mantendo o mesmo nome. Para
+trocar o monograma, é preciso repor as duas versões (`.webp` e `.png`), já recortadas.
 
 Se algum dos arquivos faltar, o convite continua funcionando: sem a foto do casal a
 seção some, e sem o monograma a capa volta a ser em texto, com os nomes e a data.
