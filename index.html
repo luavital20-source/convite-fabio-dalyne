@@ -353,6 +353,48 @@
     display: block; margin-bottom: 6px;
   }
   .dress-item-desc { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 16px; font-style: italic; color: var(--text-mid); }
+  .dress-main {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 30px; font-style: italic; color: var(--olive-dark);
+    display: block; margin-top: 6px; font-weight: 500;
+  }
+  .role-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px 14px; margin-top: 18px;
+  }
+  @media (min-width: 520px) { .role-grid { grid-template-columns: repeat(4, 1fr); } }
+  .role-item { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+  .role-color {
+    font-family: 'Cinzel', Georgia, serif; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--olive-dark); font-weight: 500;
+  }
+  .role-who {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px; font-style: italic; color: var(--text-mid); margin-top: -3px;
+  }
+
+  /* PIX */
+  .pix-block { margin-top: 30px; padding-top: 26px; border-top: 1px solid rgba(111,117,80,0.25); }
+  .pix-label {
+    font-family: 'Cinzel', Georgia, serif; font-size: 9px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--text-light);
+    display: block; margin-bottom: 15px;
+  }
+  .pix-key { display: flex; align-items: stretch; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .pix-key code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px; letter-spacing: 1px; color: var(--text);
+    background: var(--cream); border: 1px solid var(--olive-light);
+    padding: 12px 16px; display: inline-flex; align-items: center;
+  }
+  .pix-copy {
+    font-family: 'Cinzel', Georgia, serif; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+    background: var(--olive-dark); color: #fff; border: none;
+    padding: 12px 20px; cursor: pointer; transition: background 0.25s ease;
+  }
+  .pix-copy:hover { background: var(--text); }
+
   .palette-title {
     font-family: 'Cinzel', Georgia, serif; font-size: 9px;
     letter-spacing: 3px; text-transform: uppercase; color: var(--text-light);
@@ -671,58 +713,39 @@
   <section style="padding-top: 0;">
     <span class="section-label reveal">Dress Code</span>
     <div class="dress-section reveal">
-      <div class="dress-grid">
-        <div class="dress-item">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4d5235" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 2 Q12 6 16 2 L18 8 L15 8 L15 22 L9 22 L9 8 L6 8 Z"/>
-            <path d="M9 8 Q12 11 15 8"/>
-          </svg>
-          <span class="dress-item-label">Elas</span>
-          <span class="dress-item-desc">Vestido longo<br>ou midi</span>
-        </div>
-        <div class="dress-item">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4d5235" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="7" y="2" width="10" height="6" rx="1"/>
-            <path d="M7 5 L4 8 L4 22 L20 22 L20 8 L17 5"/>
-            <path d="M7 8 L7 22 M17 8 L17 22"/>
-            <path d="M11 2 L11 8 M13 2 L13 8"/>
-          </svg>
-          <span class="dress-item-label">Eles</span>
-          <span class="dress-item-desc">Social completo<br>ou esporte fino</span>
-        </div>
-      </div>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4d5235" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:0 auto">
+        <path d="M12 3a1.8 1.8 0 1 0-1.3 1.73L12 6.4l8.4 5.9a1.6 1.6 0 0 1-.92 2.9H4.52a1.6 1.6 0 0 1-.92-2.9L12 6.4"/>
+      </svg>
+      <span class="dress-item-label" style="margin-top:12px">Traje</span>
+      <span class="dress-main">Esporte fino</span>
 
-      <span class="palette-title">Paleta de cores</span>
-      <div class="dress-swatches">
-        <div class="swatch-item">
+      <span class="palette-title">As cores de cada um</span>
+      <div class="role-grid">
+        <div class="role-item">
           <span class="swatch" style="background:#ffffff; border:1px solid #ddd8c9;"></span>
-          <span class="swatch-name">Branco</span>
+          <span class="role-color">Branco</span>
+          <span class="role-who">Noiva</span>
         </div>
-        <div class="swatch-item">
+        <div class="role-item">
           <span class="swatch" style="background:#6f7550;"></span>
-          <span class="swatch-name">Verde Oliva</span>
+          <span class="role-color">Verde Oliva</span>
+          <span class="role-who">Madrinhas</span>
         </div>
-        <div class="swatch-item">
-          <span class="swatch" style="background:#ece6d8; border:1px solid #ddd8c9;"></span>
-          <span class="swatch-name">Creme</span>
+        <div class="role-item">
+          <span class="swatch" style="background:#8b8d8f;"></span>
+          <span class="role-color">Cinza</span>
+          <span class="role-who">Padrinhos</span>
+        </div>
+        <div class="role-item">
+          <span class="swatch" style="background:#1f2a44;"></span>
+          <span class="role-color">Azul Marinho</span>
+          <span class="role-who">Noivo</span>
         </div>
       </div>
 
       <span class="dress-note">
-        Pedimos, com carinho, que os convidados <strong>evitem o branco e o verde oliva</strong><br>
-        &mdash; cores reservadas aos noivos e à cerimônia.<br><br>
-        <strong>Damas e rapazes:</strong> cinza e azul marinho
+        Os demais convidados ficam à vontade
       </span>
-      <div class="dress-swatches" style="margin-top:16px;">
-        <div class="swatch-item">
-          <span class="swatch" style="background:#8b8d8f;"></span>
-          <span class="swatch-name">Cinza</span>
-        </div>
-        <div class="swatch-item">
-          <span class="swatch" style="background:#1f2a44;"></span>
-          <span class="swatch-name">Azul Marinho</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -753,6 +776,14 @@
         Mas, se desejar nos abençoar de outra forma,<br>preparamos a nossa lista com muito carinho.
       </p>
       <a class="btn-primary" href="https://noivos.casar.com/dalyne-e-fabio#/presentes" target="_blank" rel="noopener">Ver lista de presentes</a>
+
+      <div class="pix-block">
+        <span class="pix-label">Ou, se preferir, via Pix</span>
+        <div class="pix-key">
+          <code id="pix-chave">85920014354</code>
+          <button class="pix-copy" id="pix-botao" onclick="copiarPix()">Copiar chave</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -866,6 +897,30 @@
       initScrollAnimations();
       startCountdown();
     }, 600);
+  }
+
+  /* ---------- CHAVE PIX ---------- */
+  function copiarPix() {
+    var chave = document.getElementById('pix-chave').textContent.trim();
+    var botao = document.getElementById('pix-botao');
+    function avisar() {
+      botao.textContent = 'Chave copiada!';
+      setTimeout(function () { botao.textContent = 'Copiar chave'; }, 2200);
+    }
+    function reserva() {
+      var campo = document.createElement('textarea');
+      campo.value = chave;
+      campo.style.position = 'fixed'; campo.style.opacity = '0';
+      document.body.appendChild(campo);
+      campo.select();
+      try { document.execCommand('copy'); avisar(); } catch (e) {}
+      document.body.removeChild(campo);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(chave).then(avisar).catch(reserva);
+    } else {
+      reserva();
+    }
   }
 
   /* ---------- CONTAGEM REGRESSIVA ---------- */
